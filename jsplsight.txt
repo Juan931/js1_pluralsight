@@ -1,0 +1,528 @@
+) git --version
+2) --version
+3) git clone [https://github.com/pluralsight/web-dev-starter.git](https://github.com/pluralsight/web-dev-starter.git)
+4) cd web-dev-starter
+5) C:\Users\Nicolas\web-dev-starter>code .
+"por seguridad siempre hay que instalar npm desde cmd , no desde visual estudio, ya que se pueden presentar algunos errores"
+
+instalar paquetes en cmd estando en C:\Users\Nicolas\web-dev-starter> : npm install
+
+sudo npm install
+
+estando en visual studio code , vamos al terminal
+
+C:\Users\Nicolas\web-dev-starter> npm run start
+
+<script src="nombre"> </script>
+
+paramirar los errores, lo podemos hacer en la consola
+
+declarar variable=esto es llamar la variable
+
+la variable const = no es para cambiarla queda vija
+
+cuando sequiere borrar un valor en una variable se establece como null .
+
+los objetos se almacenan entre llaves {firstName: "jhon ",lasName: "juan";}
+
+flase and truthy:
+false   | TRUE
+0   	| 0,5
+"" 	| "0"
+null	|
+undefin	|
+NaN	|
+|
+|
+
+operador terniario ?: ejemplo de como funciona
+let price = 20;
+
+(price > 10) ? alert("yes"): alert("no");
+
+for nos permite crear bucles
+
+for (let i = 0; i < 5; i++) {
+alert(i);
+}
+
+bulces con while
+
+functions
+
+function shoewMessage(esto se conoce como el parametro de la funcion){esto es un bloque se conoce como el cuerpo de la funcion }
+
+shoewMessage();
+shoewMessage();
+asi se llama una function para que se ejecute
+
+function showMessage(){};
+
+hay otra forma de llamar una function y es por medio de una variable
+
+var showMessage= function(){};
+
+showMessage("First Message", "second Message");
+
+otro ejemplo console.log (message, other message); es importante que esten separados por comas para que podamos
+pasar multiples tipos de informacion a una function simple, enumerando varios parametros separados por comas
+
+vamos a llamar la function ("firts menssage", "second message")
+
+function logMess(message, firstName) {
+console.log(message);
+console.log(firstName);
+};
+logMess("hello", "jhon");
+
+valores de retorno de funciones
+
+function getSecretCode(value){
+
+```
+let code= value*42
+return code
+
+```
+
+}
+
+console.log(getSecretCode(2)); este codigo de funcion sera dos veces 42 que es 84 y luego devolveremos 84
+
+Funtion scope
+las funciones tiene su propio alcance , una vez que la funcion completa la ejecucion todos los parametros y variables locales
+desaparecen ,las funciones tiene su propio alcance   , esto quiere decir y hace referencia a las variables locales y globalres
+por lo que no se puede llamar una variable que este dentro de un bloque y aparecera como no definida, en cambio si agregamos
+una variable fuera del bloque y la asignamos dentro de la funcion , si funcionara
+
+let key = 42;
+
+function getSecretCode(value) {
+
+```
+let keyGenerator = function() {
+
+    let key = 12;
+    console.log("mira esto", key);
+    return key;
+}
+let code = value * keyGenerator();
+console.log("esto es una prueba", key)
+return code;
+
+```
+
+}
+
+let secret = getSecretCode(2);
+console.log(secret);
+
+USANDO OPCIONES PARA MODIFICAR PAGINAS WEB
+
+OBJETOS Y DOM
+
+Un objeto puede contener múltiples propiedades, para diferentes valores , y lo que Dom representa es el modelo del  objeto del documento, el objeto clave con el que trabajamos se llama Documento y el Dom o el modelo de objetos de documentos se refiere a ese objeto de documento junto con todos sus objetos de soportes y todas sus caracteristicas, las propiedades son similares a las variables adjuntas al objeto y los metodos son similares a las funciones adjuntas a un objeto
+
+PROPIEDADES DE OBJETOS 
+
+Los objetos son un grupo de valores y propiedades esto es un objeto 
+
+let person ={
+
+name: "juan",
+
+age:    27,
+
+parTime:false 
+
+};
+
+console.log(person.name);
+
+console.log(person.age);
+
+console.log(person.parTime);
+
+los valores tambien se pueden cambiar de la siguiente manera :
+
+person.age=33;
+
+tambien lo podemos hacer de la siguiente manera:
+
+person["age"] = 33;
+
+console.log(person.age)
+
+tambien hay algo denominado simbolo ejemplo 
+
+let mySymbol = symbol(); "agregamos"
+
+"copiamos y pegamos el codigo nuevamente"
+
+let person ={
+
+name: "juan",
+
+age:    27,
+
+parTime:false,
+
+[mySymbol]: "secret informacion"
+
+};
+
+console.log(person.name);
+
+se puede usar un simbolo dentro de un objeto para cultar informacion , lo agregamos dentro del objeto por medio de corchetes[ ]: y le agregamos un valor , esto se utiliza mucho con un sistema de recursos humanos que quieran ocultar informacion salarial , oh que se trabaje con algun tipo de arquitecura de algun complemento , en que cada complemento tenga su informacion secreta, el unico que puede acceder a esta propiedad es el symbolo , esto hace parte de las propiedades .
+
+METODOS DE OBJETOS 
+
+Podemas adjuntar funciones se llaman metodos , las propiedades es lo que estan dentro del objeto {}, tambien podemos agragar funciones como propiedades dentro de un objeto un ejemplo seria :
+
+let person ={
+
+name: "juan",
+
+age:    27,
+
+parTime:false,
+
+mensaje: function(){
+
+console.log("Hola mundo");
+
+}
+
+};
+
+person.mensaje();  "PREGUNTA CUANDO ES UN OBJETO EL PUNTO Y COMO VA }; Y CUANDO ES UNA FUNCION NO VA EL PUNTO Y COMA ?
+
+muchas veves se acceden es a los datos del objeto es decir la cadena no tendria que ir ahi "hola mundo ", se remplaza por alguna caracteristica del objeto, pero al llamarla usamos la palabra this.seguido de la caracteristica  (this.name) ejempo
+
+let person ={
+
+name: "juan",
+
+age:    27,
+
+parTime:false,
+
+mensaje: function(){
+
+console.log(this.name);   
+
+}
+
+};
+
+tambien podemos  agregar dentro de la funcion mas caracteristicas del objeto , un ejemplo seria  console.log(this.name+"is"+this.age); 
+
+DENTRO DE LAS FUNCIONES TAMBIEN HAY PARA METRO QUE SON : function (parametro){}, podemos pasarle un parametro a la funcion de la siguiente manera con el mismo codigo que estamos trabajando.
+
+let person ={
+
+name: "juan",
+
+age:    27,
+
+parTime:false,
+
+mensaje: function(realage){
+
+console.log(this.name+"is"realage);
+
+}
+
+};
+
+person.mensaje(34);
+
+Podemos tambien pedir que me muestre si es un object oh una funcion de la siguiente manera al llamarlo console.log(typeof person.mensaje);
+
+PASAR OBJETOS A FUNCIONES 
+
+Hay una gran diferencia entre pasar un objeto una funcion , y pasar tuberias integradas,como una cadena , un numero o un valor boleano a una funcion , esta es la fuenta a muchos problemas y errores  un ejemplo:
+
+let person ={
+
+name: juan,
+
+age: 27,
+
+parTime: false
+
+};
+
+funtion  incrementeAge(person){
+
+person.age++
+
+}
+
+incrementAge(person);
+
+showMenssage(person.age);
+
+aca tenemos un objeto dentro de una function el cual tiene el parametro person , dentro tenemos person.age++ que nos va a incrementar 1 a la edad entonces la edad deberia ser 28 , esto se llama pasar por referencia
+
+OBJETOS INTEGRADOS ESTANDAR
+
+Estandar construido en objetos esntando en la pagina de mozila llamda MDN al lado izquierdo hay una opcion que se llama objetos integrados, donde hablaremos de que es una matriz , ya que es un grupo de objetos y de valores , en MDN es comun trabajar con fechas y se puede ver todo sobre ellas aqui, y hay muchos metodos asociados a ellas ,vamos atrabajar con fechas 
+
+let now = new Date();
+
+console.log(now.toDateString());
+
+"Mon Feb 01 2021"
+
+Nos mostrara la fecha exacta del dia de hoy 
+
+tambien podemos usar metodos de matematicas por ejemplo 
+
+console.log(math.abs(-23));
+
+y optendremos 23 ya que es elvalor obsoluto 
+
+en MDN cuando un pulgar aparece hacia abajo es porque desaprueban la identificación, no los deberiamos usar porque pueden desaparecer en el futuro , hay muchas propiedas que podemos aprender en MDN a utilizar , lo recomendable es empezar a ver la documentacion , de esa forma se ira avanzando,
+
+EL MODELO DE OBJETOS DE DOCUMENTACIÓN
+
+Podemos usar javascript con tecnologias como js, para  ejecutar javascript en el servidor, tecnologia como cordova , APS en dispositivos moviles y tablets , pero por el momento nos enfocaremos en la programacion del navegador , trabajaremos con la pagina WEB , en si las paginas web creadas con objetos , esto se conoce como el modelo de objeto del documento DOM , Y ESTO SE REFIERE A MODIFICAR LA PAGINA WEB . 
+
+document.  esto representa la pagina web como documento y ese es el objeto de javascript , y ese objeto tiene un metodo des pues del punto un ejemplo:
+
+document .getElementByid("message").textContent= message;
+
+tenemos un objeto y un metodo que devuelve otro objeto , que tiene una propiedad llamada contenido del texto y establecemos eso en el mensaje del parametro .
+
+Dentro de la documentacion, encontramos element, esto es basicamente una etiqueta en el marcado , podemos axeder a cualquier elemento por medio de un id ejemplo : id="name".
+
+Pero lo que queremos en javascript el elobjeto que representa este elemento 
+
+y la forma de entrar en ese elemento es llamando a este elemento en el documeto  ejemplo
+
+document.showMessage(name){
+
+document.getElementByid("name").textContent = name;
+
+}
+
+despumes podemos acceder a la propiedad de contenido del texto para establecer el texto en este caso seria .textContent esto nosmuestra como acceder a la pagina web con un documento, y uno de los métodos mas comunes es este 
+
+Estilos de elementos DOM 
+
+Entre la documentacion de MDN encontramos un una propiedad  llamada style , y esa es la propiedad que nos permite sobre escribir los valores CSS, Y aca podemos leer como podemos trabajar con esta propiedad de estilo 
+
+elt.style.color = "blue";  
+
+este es el elemento que tiene el estilo,de la propiedad css, y tiene la propiedad de color azul
+
+const header = document.getElementByid("message");
+
+header.style.color ="red"; 
+
+de esta forma el color va a cambiar 
+
+en javascript podemos manejar propiedades que maneja css como fuentes colores etc
+
+DETECCION DE CLIPS EN BOTONES 
+
+Muchas veces queremos saber si un usuario interactua con una pagina web ,y una interaccion simplemente tiene que ver con hacer clip en un boton , ejecutar un codigo cuando esto ocurra 
+
+y esto se hace agregando un id al html , que es el cual empezaremos a manejar 
+
+const buttom =document.getElementByid("see-review"este es el id);
+
+button . addEventListener("click", function() ){
+
+console.log("click");
+
+}   
+
+MOSTRAR Y OCULTAR ELEMENTOS DOM
+
+Como podemos usar el boton clic para mostrar algo , actuara como un boton de alternar , esto es muy comun cuando se trabaja con Html y Javascript , la idea es activar y desactivar haciendo click en el boton 
+
+const buttom =document.getElementByid("see-review"este es el id);
+
+button . addEventListener("click", function() ){
+
+const review = document.getElementByid("review"este es el id)
+
+review.classList.remove("d-none" esta es la clase)
+
+}   
+
+entonces cuando hacemos click en el boton eliminara la clase "d-none" 
+
+ahora necesitamos una condicional if si revisamos la clases de puntos que podemos llamar , esto es un metodo que nos permite saber si existe cierta clase en el elemento un ejemplo de ello es el siguiente 
+
+  
+
+const buttom =document.getElementByid("see-review"este es el id);
+
+button . addEventListener("click", function() ){
+
+const review = document.getElementByid("review"este es el id)
+
+review.classList.remove("d-none" esta es la clase)
+
+if  (review.classList.contains("d-none")){
+
+review.classList.remove("d-none");
+
+}
+
+else{
+
+review.classList.add("d-none");
+
+}
+
+});
+
+de esta forma al darle click nos aparecera un texto cada vez que le demos click al boton 
+
+el tema de documentacion Dom es muy grande , pero haci podemos hacer para empezar , podemos utilizar MDN para descubrir todo acerca de objetos y eventos
+
+cursos en plural el Dhamma 
+
+ARRAYS
+
+Para acceder a los elemento de la matriz , los elementos de una matriz se denominan elementos 
+
+slice() and splice()
+
+CREAR E INICIALIZAR MATRICES
+
+Para crear una matriz utilizamos [ ], 
+
+const values =["a","b","c"];
+
+console.log (values);
+
+al momento de llamar un elemento que esta dentro de una matriz se empieza desde 0
+
+y si ponemos typeof , nos mostrara que tipo es ,ejemplo 
+
+const values =["a","b","c"];
+
+console.log (typeof values);  es un object
+
+si deseamos saber si una variable era una matriz
+
+el motodo esta con una A mayuscula y el metodo es matriz y pasar los valores 
+
+console.log (Array.isArray(values));  y en la consola nos arroja es "true"
+
+en la siguiente pagina podremos encontrar los diferentes metodos para utilizar con arrays
+
+[https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array)
+
+como el metodo "Array.isArray " que utilizamos anterior mente 
+
+ACCESO A ELEMENTOS DE MATRIZ
+
+console.log(value[0]); de esta forma estaremos llamano al elemeto a , ya que siempre se empieza desde "0"
+
+podemos cambiar los valores de la matriz de la siguiente forma 
+
+const values =["a","b","c"];
+
+values [0]= "aaa"
+
+console.log(values[0]); es "aaa"
+
+MANIPULACION DE MATRICES
+
+Diferentes formas de manipular un aumento , veremos como empujar un aumento con la palabra push 
+
+const values =[ "a","b","c"  ] 
+
+values.push("d");
+
+console.log (values);
+
+Des esta forma ,se agraga el ultimo elemento a la variable values
+
+EL SIGUIENTE ES EL METODO POP()
+
+Este metodo nos quita el ultimo elemento del array  
+
+METODO SHIFT();  Sirve para cambiar los movimientos de cambio, como desplazar toda la matriz al elemento de la izquierda y quita el primer elemento de la matriz 
+
+UNSHIFT (); Pondria el elemento al principio 
+
+una vez que retiramos un elemento de la matriz lo podemos volver a agregar , pero fuera de la matriz llamandolo ,creando una nueva variable  seria de la siguiente manera:
+
+const values =[ "a","b","c","d"  ]; 
+
+let last = values.pop("d");
+
+console.log (values,last);
+
+ lo mostraria de la siguiente manera:
+
+  ["a", "b", "c"] "b
+
+SLICE () AND SPLICE ()
+
+Crean una nueva matriz que se basas en una porción, de una matriz original 
+
+el primer argumento es donde queremos empezar a tomar nuestro segmento ,que es el elemento 1 , y el elemento 1 es "b" y luego 2 nos da el elemento final que queremos ver en cuyo caso seria C 
+
+//SLICE();
+
+const values =["a","b","c",];
+
+const newValues=values.slice(1,2); // esta linea crearía una nueva matriz 
+
+console.log (newValues); //b
+
+// SPLICE()
+
+sirve para elmiminar el primer argumento es el indice del elemento que queremos eliminar , asi que el indice 1 es la "b" el segundo 1 es el montaje de elementos que queria eliminar , y luego el tercer argumento en adelante son todos los valores que se insertan en la matriz 
+
+const values =["a","b","c","d","e"]
+
+const newValues=values.slice(1,4)                   //Ejecutare valores de ese segmeto comenzando con elindice 1 y el segundo es el final de nuestra matriz
+
+console.log(newValues);
+
+BUSQUEDA Y BUCLES DE MATRICES
+
+Encontrar un indice de algun elemento, aveces esto implica bucles, y para ello hay que tener control sobre el bucle, lo siguiente es un método que nos permite obtener el indice .
+
+"index of" es un metodo que nos permite obtener el indice , de un cierto valor en una matriz , estamos configurando una matriz de valores y estamos ejecutando valores 
+
+const values = ["a","b","c"];
+
+console.log(values.indexOf("c")); //2
+
+console.log(values.indexOf("d")); //1
+
+SCOPE Y ALCANCE 
+
+GLOBAL SCOPE
+
+Principalmente hay dos ambitos en javascript
+
+Tienes alacance y Funcion Global
+
+ALcance se refiere al area a la que puedes acceder a una variable, las variables se declaran en un ambito , en este caso se refiere a las variables globales , que se encuentran fuera de la funcion  ejemplo 
+
+let Global= "Hola Mundo";
+
+function globalNew(){
+
+console.log(Global);
+
+};
+
+globalNew();
+
+ALCANCE DE LAS FUNCIONES
+
+Cuando una variable esta dentro de una funcion , y la llamamos por fuera nos va arrojar error , ya que cuando la llamamos por fuera solo nos va a detectar la variable global
+
+VAR Y ELEVACIÓN
